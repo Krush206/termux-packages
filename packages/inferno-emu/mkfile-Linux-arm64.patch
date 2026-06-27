@@ -1,0 +1,13 @@
+--- a/mkfiles/mkfile-Linux-arm64
++++ b/mkfiles/mkfile-Linux-arm64
+@@ -13,7 +13,9 @@ ASFLAGS=
+ 
+ CC=		gcc -c 
+ CFLAGS=		-g\
+-		-O\
++		-O0\
++		-Wno-implicit-function-declaration\
++		-Wno-incompatible-function-pointer-types\
+ 		-Wuninitialized -Wunused-variable -Wreturn-type -Wimplicit\
+ 		-I$ROOT/Linux/arm64/include\
+ 		-I$ROOT/include\
