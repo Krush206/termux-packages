@@ -36,25 +36,9 @@ termux_step_make_install() {
 	local dir=${TERMUX_PREFIX}/lib/inferno
 	cp -r . ${dir}
 	rm -f ${TERMUX_PREFIX}/bin/emu
-	case "$HOSTTYPE" in
-	aarch64)
-		ln -s ../lib/inferno/Linux/arm64/bin/emu ${TERMUX_PREFIX}/bin/emu
-		;;
-	arm)
-		ln -s ../lib/inferno/Linux/arm/bin/emu ${TERMUX_PREFIX}/bin/emu
-
-		;;
-	i686)
-		ln -s ../lib/inferno/Linux/386/bin/emu ${TERMUX_PREFIX}/bin/emu
-
-		;;
-	x86_64)
-		ln -s ../lib/inferno/Linux/amd64/bin/emu ${TERMUX_PREFIX}/bin/emu
-
-		;;
-	esac
+	ln -s ../lib/inferno/Linux/${objtype}/bin/emu ${TERMUX_PREFIX}/bin/emu
 }
 
 termux_step_post_get_source() {
-	cat < NOTICE > LICENSE
+	cp NOTICE LICENSE
 }
