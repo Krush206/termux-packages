@@ -1,0 +1,41 @@
+--- a/Linux/arm64/include/lib9.h
++++ b/Linux/arm64/include/lib9.h
+@@ -1,4 +1,8 @@
+ /* define _BSD_SOURCE to use ISO C, POSIX, and 4.3BSD things. */
++#define NULL ((void*)0)
++#define getdtablesize() FD_SETSIZE
++#define size_t __kernel_size_t
++#define ptrdiff_t __kernel_ptrdiff_t
+ #define	USE_PTHREADS
+ #ifndef _DEFAULT_SOURCE
+ #define	_DEFAULT_SOURCE
+@@ -15,7 +19,9 @@
+ #endif
+ #include <features.h>
+ #include <sys/types.h>
++#ifndef __FTSTDLIB_H__
+ #include <stdlib.h>
++#endif
+ #include <stdarg.h>
+ #define sync __os_sync
+ #include <unistd.h>
+@@ -41,7 +47,7 @@ typedef struct Proc Proc;
+  * #define __LITTLE_ENDIAN /usr/include/endian.h under linux
+  */
+ 
+-#define	nil		((void*)0)
++#define	nil		NULL
+ 
+ typedef unsigned char	uchar;
+ typedef signed char	schar;
+@@ -77,8 +83,8 @@ typedef unsigned char	u8;
+ typedef signed char	s8int;
+ typedef signed char s8;
+ 
+-
+-
++#define ushort u_short
++#define ulong u_long
+ 
+ #define	USED(x)		if(x){}else{}
+ #define	SET(x)
