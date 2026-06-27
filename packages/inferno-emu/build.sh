@@ -10,7 +10,7 @@ TERMUX_PKG_DEPENDS="libx11, xorg-proto, plan9port"
 TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_make() {
-	case "$HOSTTYPE" in
+	case "${HOSTTYPE}" in
 	aarch64)
 		export objtype=arm64
 		;;
