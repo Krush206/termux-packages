@@ -1,0 +1,21 @@
+--- /dev/null
++++ b/exec
+@@ -0,0 +1,18 @@
++#!/bin/bash
++
++case "${HOSTTYPE}" in
++aarch64)
++	objtype=arm64
++	;;
++arm)
++	objtype=arm
++	;;
++i686)
++	objtype=386
++	;;
++x86_64)
++	objtype=amd64
++	;;
++esac
++cd @TERMUX_PREFIX@/lib/inferno
++exec Linux/${objtype}/bin/emu -r ${PWD} "$@"
