@@ -1,0 +1,11 @@
+--- a/mkconfig
++++ b/mkconfig
+@@ -4,7 +4,7 @@
+ #	They are almost always the same.
+ 
+ #	On Nt systems, the ROOT path MUST be of the form `drive:/path'
+-#ROOT=
++ROOT=${TERMUX_PKG_SRCDIR}
+ 
+ #
+ #	Specify the flavour of Tk (std for standard builds)
