@@ -1,0 +1,10 @@
+--- a/lib/emptydirs
++++ b/lib/emptydirs
+@@ -163,3 +163,7 @@ dis/wm
+ dis/wm/brutus
+ dis/wm/vixen
+ dis/zip
++Linux/arm64/bin
++Linux/arm64/lib
++Linux/amd64/bin
++Linux/amd64/lib
