@@ -10,6 +10,24 @@ TERMUX_PKG_DEPENDS="libx11, xorg-proto, plan9port"
 TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_make() {
+	case "$HOSTTYPE" in
+	aarch64)
+		export objtype=arm64
+		;;
+	arm)
+		export objtype=arm
+
+		;;
+	i686)
+		export objtype=386
+
+		;;
+	x86_64)
+		export objtype=amd64
+		;;
+	esac
+	export PATH=${TERMUX_PKG_SRCDIR}/Linux/${objtype}/bin:${PATH}
+	export TERMUX_PKG_SRCDIR
 	9 mk mkdirs
 	9 mk install
 }
@@ -35,4 +53,8 @@ termux_step_make_install() {
 
 		;;
 	esac
+}
+
+termux_step_post_get_source() {
+	cat < NOTICE > LICENSE
 }
